@@ -1,25 +1,24 @@
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Container } from "@material-ui/core";
+import { Container, Grid, makeStyles } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
 
-export default function MediaCard() {
+export function Features() {
+  const classes = useStyles();
+  const navigate = useNavigate();
+
   return (
     <Container
       style={{
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         display: "flex",
+        marginTop: "8rem",
       }}
     >
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          sx={{ height: 140 }}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="green iguana"
-        />
+      <Card sx={{ maxWidth: 345 }} style={{ margin: "5px" }}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Versão 2.1.0
@@ -35,12 +34,7 @@ export default function MediaCard() {
         </CardActions>
       </Card>
 
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          sx={{ height: 140, width: 140 }}
-          image="https://cdn-icons-png.flaticon.com/512/1284/1284454.png"
-          title="manual"
-        />
+      <Card sx={{ maxWidth: 345 }} style={{ margin: "5px" }}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             Manual
@@ -51,9 +45,17 @@ export default function MediaCard() {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Ver mais</Button>
+          <Button size="small" onClick={() => navigate("Manual")}>
+            Ver mais
+          </Button>
         </CardActions>
       </Card>
     </Container>
   );
 }
+
+const useStyles = makeStyles({
+  main: {
+    padding: "15px",
+  },
+});

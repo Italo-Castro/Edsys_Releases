@@ -46,11 +46,9 @@ const Copyright: React.FC = () => {
 
 const useStyles = makeStyles({
   footer: {
-    // background: "#2196f3",
     bottom: 0,
-    // position: "fixed",
+    position: "fixed",
     width: "100%",
     textAlign: "center",
   },
 });
-// color:"#2196f3"
